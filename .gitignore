@@ -1,0 +1,15 @@
+# IntelliJ
+.idea/
+
+# Backend
+url-shortener/target/
+url-shortener/.idea/
+url-shortener/*.iml
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Environment / secrets
+.env
