@@ -51,7 +51,7 @@ const LoginPage = () => {
         className='min-h-[calc(100vh-64px)] flex justify-center items-center'>
         <form onSubmit={handleSubmit(loginHandler)}
              className="sm:w-[450px] w-[360px] bg-white shadow-xl py-8 sm:px-8 px-4 rounded-2xl">
-            <h1 className="text-center font-serif text-[#2563eb] font-bold lg:text-3xl text-2xl">
+            <h1 className=" text-center font-serif text-[#2563eb] font-bold lg:text-3xl text-2xl">
                 Login Here
             </h1>
 
@@ -85,7 +85,7 @@ const LoginPage = () => {
             <button
                 disabled={loader}
                 type='submit'
-                className='bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3'>
+                className='bg-blue-500 font-semibold text-white  w-full py-2 hover:text-black transition-colors duration-100 rounded-sm my-3'>
                 {loader ? "Loading..." : "Login"}
             </button>
 
