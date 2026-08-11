@@ -7,7 +7,7 @@ import { LiaCheckSolid } from 'react-icons/lia';
 import { MdAnalytics, MdOutlineAdsClick } from 'react-icons/md';
 import api from '../../api/api';
 import { Link, useNavigate } from 'react-router-dom';
-import { useStoreContext } from '../../ContextApi/ContextApi';
+import { useStoreContext } from '../../contextApi/ContextApi';
 import { Hourglass } from 'react-loader-spinner';
 import Graph from './Graph';
 
