@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import Card from "./Card";
-import { useStoreContext } from "../contextApi/ContextApi";
+import { useStoreContext } from "../ContextApi/ContextApi";
 
 let desc =
   "Generate short, memorable links with ease using Shortify’s intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with Shortify. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using Shortify’s intuitive interface. Share URLs effortlessly across platforms.";
