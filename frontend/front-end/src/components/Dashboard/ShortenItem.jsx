@@ -6,7 +6,7 @@ import { IoCopy } from 'react-icons/io5';
 import { LiaCheckSolid } from 'react-icons/lia';
 import { MdAnalytics, MdOutlineAdsClick } from 'react-icons/md';
 import api from '../../api/api';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useStoreContext } from '../../contextApi/ContextApi';
 import { Hourglass } from 'react-loader-spinner';
 import Graph from './Graph';
@@ -20,10 +20,8 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     const [selectedUrl, setSelectedUrl] = useState("");
     const [analyticsData, setAnalyticsData] = useState([]);
 
-    const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(
-        /^https?:\/\//,
-        ""
-      );
+    const backendBase = import.meta.env.VITE_BACKEND_URL;
+    const backendDisplay = backendBase.replace(/^https?:\/\//, "");
 
     const analyticsHandler = (shortUrl) => {
         if (!analyticToggle) {
@@ -75,12 +73,13 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                 {subDomain + "/" + `${shortUrl}`}
             </a> */}
 
-            <Link
-              target='_'
+            <a
+              target='_blank'
+              rel='noreferrer'
               className='text-[17px]  font-montserrat font-[600] text-linkColor'
-              to={import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`}>
-                  {subDomain + "/s/" + `${shortUrl}`}
-            </Link>
+              href={backendBase + "/" + shortUrl}>
+                  {backendDisplay + "/" + shortUrl}
+            </a>
             <FaExternalLinkAlt className="text-linkColor" />
             </div>
 
@@ -115,7 +114,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
         <div className="flex  flex-1  sm:justify-end items-center gap-4">
             <CopyToClipboard
                 onCopy={() => setIsCopied(true)}
-                text={`${import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`}`}
+                text={`${backendBase + "/" + shortUrl}`}
             >
                 <div className="flex cursor-pointer gap-1 items-center bg-blue-500 py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white ">
                 <button className="">{isCopied ? "Copied" : "Copy"}</button>
