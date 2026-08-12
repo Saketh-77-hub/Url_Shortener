@@ -1,4 +1,3 @@
-# Build stage
 FROM node:22-alpine AS build
 
 WORKDIR /app
@@ -9,14 +8,17 @@ RUN npm install
 
 COPY . .
 
+ARG VITE_BACKEND_URL
+ARG VITE_REACT_FRONT_END_URL
+ARG VITE_REACT_SUBDOMAIN
+
+ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
+ENV VITE_REACT_FRONT_END_URL=$VITE_REACT_FRONT_END_URL
+ENV VITE_REACT_SUBDOMAIN=$VITE_REACT_SUBDOMAIN
+
 RUN npm run build
 
 
-# Production stage
 FROM nginx:alpine
 
 COPY --from=build /app/dist /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
